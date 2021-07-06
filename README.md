@@ -10,11 +10,12 @@ These notes are based for devices with Mediatek :
 - MT817x,
 - MT6580 chipsets
 
+There is no support for 32-bit chips eg MT65xx or MT8127
 ---
 
 **WARNING**
 If you have a device with Android 6 or higher, it likely has **dm-verity** enabled. On such a device one does not simply remount the system partition as read/write.
-
+The remount command will probably fail. But if you succeed in forcing it somehow it will trigger dm-verity, which will result in a very bad day. Your device will become inoperable until you restore the stock system partition.
 
 **DISCLAIMER**
 Anything you do that is described in this thread is at your own risk. No one else is responsible for any data loss, corruption or damage of your device, including that which results from bugs in this software. There is a nonzero chance of any of these events happening as a result of using the tools or methods here.
@@ -54,3 +55,6 @@ Run the command `./mtk-su`
 It should only take a second or two. If the program gets stuck for more than a few seconds and your device is awake, press Ctrl+C to close it.
 
 The -v option turns on verbose printing, which is necessary to debug any problems
+
+**NOT SUPPORTED**
+If your device has Android 10+ or a security patch level at 03-2020 or higher, you will get an error `Firmware support not implemented`.
